@@ -13,19 +13,17 @@
 <div ng-click="pause()" class="pause">暂停</div>
 <script>
     var app = angular.module("myApp", []);
-    app.controller("myAppCtrl", function ($scope) {
+    app.controller("myAppCtrl", function ($scope,$timeout) {
         $scope.time = 0;
         var timeId;
         var updateClock = function () {
             $scope.time++;
-            timeId = setTimeout(function () {
-                $scope.$apply(updateClock);
-            }, 1000);
+            timeId = $timeout(arguments.callee, 1000);
         };
         updateClock();
 
         $scope.pause = function () {
-            clearTimeout(timeId);
+            $timeout.cancel(timeId);
         }
     });
 </script>
