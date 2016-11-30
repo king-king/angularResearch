@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myAppCtrl">
+    <div class="border">你好，我是<span ng-bind="name"></span></div>
+</div>
+<script src="lib/angular-1.6.0.js"></script>
+<script>
+    var app = angular.module( "myApp" , [] );
+    app.controller( "myAppCtrl" , function ( $scope ) {
+        $scope.name = "wangqun";
+    } );
+
+</script>
+</body>
+</html>
