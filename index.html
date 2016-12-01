@@ -9,21 +9,14 @@
     </style>
 </head>
 <body ng-controller="myAppCtrl">
-<div>{{time}}</div>
-<div ng-click="pause()" class="pause">暂停</div>
+<div>{{number}}</div>
+<div ng-click="add()" class="pause">暂停</div>
 <script>
     var app = angular.module("myApp", []);
     app.controller("myAppCtrl", function ($scope,$timeout) {
-        $scope.time = 0;
-        var timeId;
-        var updateClock = function () {
-            $scope.time++;
-            timeId = $timeout(arguments.callee, 1000);
-        };
-        updateClock();
-
-        $scope.pause = function () {
-            $timeout.cancel(timeId);
+        $scope.number=0;
+        $scope.add = function () {
+            $scope.number++;
         }
     });
 </script>
