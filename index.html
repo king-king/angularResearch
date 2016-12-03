@@ -4,7 +4,7 @@
     <script src="lib/angular-1.6.0.js"></script>
     <style>
         table {
-            width: 400px;
+            width: 600px;
         }
 
         div {
@@ -12,6 +12,7 @@
         }
 
         td {
+            width: 20%;
             border: 1px solid gray;
         }
     </style>
@@ -23,12 +24,14 @@
         <td>年龄</td>
         <td>性别</td>
         <td>出生日期</td>
+        <td>身高</td>
     </tr>
-    <tr ng-repeat="item in data">
+    <tr ng-repeat="item in data |orderBy:['year','high']">
         <td ng-bind="item.name"></td>
         <td ng-bind="item.year"></td>
         <td ng-bind="item.sex"></td>
         <td ng-bind="item.birthday"></td>
+        <td ng-bind="item.high"></td>
     </tr>
 </table>
 <script>
@@ -64,7 +67,7 @@
                 year: 26,
                 sex: "女",
                 birthday: "1990-12-02",
-                high:177
+                high: 177
             }
         ];
     });
