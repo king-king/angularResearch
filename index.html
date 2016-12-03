@@ -26,7 +26,7 @@
         <td>出生日期</td>
         <td>身高</td>
     </tr>
-    <tr ng-repeat="item in data |orderBy:['year','high']">
+    <tr ng-repeat="item in data |nameLength">
         <td ng-bind="item.name"></td>
         <td ng-bind="item.year"></td>
         <td ng-bind="item.sex"></td>
@@ -70,6 +70,18 @@
                 high: 177
             }
         ];
+    });
+    app.filter("nameLength", function () {
+        return function (ds) {
+            console.log(ds);
+            if (ds && angular.isArray(ds)) {
+                return ds.sort(function (a, b) {
+                    return a.name.length - b.name.length;
+                });
+            } else {
+                return ds;
+            }
+        }
     });
 </script>
 </body>
