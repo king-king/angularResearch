@@ -3,21 +3,70 @@
 <head>
     <script src="lib/angular-1.6.0.js"></script>
     <style>
-        .pause {
-            width: 200px;
+        table {
+            width: 400px;
+        }
+
+        div {
+            height: 30px;
+        }
+
+        td {
+            border: 1px solid gray;
         }
     </style>
 </head>
 <body ng-controller="myAppCtrl">
-<div>{{number}}</div>
-<div ng-click="add()" class="pause">暂停</div>
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <td>名字</td>
+        <td>年龄</td>
+        <td>性别</td>
+        <td>出生日期</td>
+    </tr>
+    <tr ng-repeat="item in data">
+        <td ng-bind="item.name"></td>
+        <td ng-bind="item.year"></td>
+        <td ng-bind="item.sex"></td>
+        <td ng-bind="item.birthday"></td>
+    </tr>
+</table>
 <script>
     var app = angular.module("myApp", []);
-    app.controller("myAppCtrl", function ($scope,$timeout) {
-        $scope.number=0;
-        $scope.add = function () {
-            $scope.number++;
-        }
+    app.controller("myAppCtrl", function ($scope) {
+        $scope.data = [
+            {
+                name: "王山",
+                year: 25,
+                sex: "男",
+                birthday: "1991-12-02",
+                high: 180
+            }, {
+                name: "李柳柳",
+                year: 25,
+                sex: "女",
+                birthday: "1995-02-02",
+                high: 166
+            }, {
+                name: "赵坂三",
+                year: 22,
+                sex: "男",
+                birthday: "1994-01-14",
+                high: 172
+            }, {
+                name: "章张",
+                year: 27,
+                sex: "男",
+                birthday: "1989-04-02",
+                high: 168
+            }, {
+                name: "刘白柳",
+                year: 26,
+                sex: "女",
+                birthday: "1990-12-02",
+                high:177
+            }
+        ];
     });
 </script>
 </body>
