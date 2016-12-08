@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <head>
-    <!--<script src="lib/angular-1.6.0.js"></script>-->
+    <script src="lib/angular-1.6.0.js"></script>
     <style>
     </style>
 </head>
-<script>
-    function ex(func) {
-        console.log(func);
-        func();
-    }
+<div ng-controller="appCtrl as ctrl">
+    <div>name:{{name}}</div>
+    <div>ctrl.year:{{ctrl.year}}</div>
 
-    ex(function name() {
-        console.log("ok");
+    <div ng-controller="childCtrl">
+        <div>name:{{name}}</div>
+        <div>sex:{{sex}}</div>
+        <div>ctrl.year:{{ctrl.year}}</div>
+    </div>
+</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("appCtrl", function ($scope) {
+        $scope.name = "wangqun";
+        this.year = 323;
+    });
+    app.controller("childCtrl", function ($scope) {
+        $scope.sex = "man";
     });
 </script>
 </body>
