@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <head>
-    <script src="lib/angular-1.6.0.js"></script>
+    <!--<script src="lib/angular-1.6.0.js"></script>-->
     <style>
     </style>
 </head>
-<body ng-controller="myAppCtrl">
-<div>{{name}}</div>
-<input ng-model="name">
 <script>
-    var app = angular.module("myApp", []);
-    app.controller("myAppCtrl", function ($scope) {
-        $scope.$watch("name", function (arg1, arg2, arg3) {
-            console.log(arg1, arg2, arg3);
-        });
+    function ex(func) {
+        console.log(func);
+        func();
+    }
 
+    ex(function name() {
+        console.log("ok");
     });
 </script>
 </body>
