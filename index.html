@@ -9,17 +9,17 @@
     <div>name:{{name}}</div>
     <div>ctrl.year:{{ctrl.year}}</div>
 
-    <div ng-controller="childCtrl">
+    <div ng-controller="childCtrl as cctrl">
         <div>name:{{name}}</div>
         <div>sex:{{sex}}</div>
-        <div>ctrl.year:{{ctrl.year}}</div>
+        <div>ctrl.year:{{year}}</div>
     </div>
 </div>
 <script>
     var app = angular.module("myApp", []);
     app.controller("appCtrl", function ($scope) {
         $scope.name = "wangqun";
-        this.year = 323;
+        $scope.year = 323;
     });
     app.controller("childCtrl", function ($scope) {
         $scope.sex = "man";
