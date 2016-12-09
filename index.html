@@ -13,11 +13,12 @@
     app.controller("appCtrl", function ($scope) {
         $scope.name = "wangqun";
         setTimeout(function () {
-            $scope.$apply(function () {
-                console.log("ok");
-                $scope.name = 'ok';
-            });
+            $scope.name = 'ok';
+            $scope.$digest();
         }, 2000);
+        $scope.$watch("name", function () {
+            console.log("change");
+        })
     });
 </script>
 </body>
