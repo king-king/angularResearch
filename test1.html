@@ -9,14 +9,14 @@
 </head>
 <body ng-app="myApp">
 <div ng-controller="myAppCtrl">
-    <div class="border">你好，我是<span ng-bind="name"></span></div>
+    <div class="border"><span ng-bind="'你好 : '+name"></span></div>
 </div>
 <script src="lib/angular-1.6.0.js"></script>
 <script>
-    var app = angular.module( "myApp" , [] );
-    app.controller( "myAppCtrl" , function ( $scope ) {
-//        $scope.name = "wangqun";
-    } );
+    var app = angular.module("myApp", []);
+    app.controller("myAppCtrl", function ($scope) {
+        $scope.name = "wangqun";
+    });
 
 </script>
 </body>
