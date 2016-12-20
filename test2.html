@@ -26,7 +26,7 @@
     var index = 0;
     document.onclick = function () {
         var curindex = index++;
-        var arg = $(".target").fadeOut({
+        $(".target").fadeOut({
             duration: 2000,
             done: function () {
                 console.log("end")
