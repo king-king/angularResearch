@@ -23,17 +23,18 @@
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
 <script src="lib/jquery-1.10.2.js"></script>
 <script>
+    var index = 0;
     document.onclick = function () {
+        var curindex = index++;
         var arg = $(".target").fadeOut({
             duration: 2000,
             done: function () {
                 console.log("end")
             },
             step: function () {
-                console.log("step")
+                console.log(curindex + "step")
             }
         });
-        console.log(arg)
     }
 </script>
 </body>
