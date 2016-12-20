@@ -20,12 +20,20 @@
 <div class="target"></div>
 
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
-<script src="lib/jquery-3.1.1.min.js"></script>
+<!--<script src="lib/jquery-3.1.1.min.js"></script>-->
+<script src="lib/jquery-1.10.2.js"></script>
 <script>
     document.onclick = function () {
-        $(".target").fadeOut({
-            duration: 2000
+        var arg = $(".target").fadeOut({
+            duration: 2000,
+            done: function () {
+                console.log("end")
+            },
+            step: function () {
+                console.log("step")
+            }
         });
+        console.log(arg)
     }
 </script>
 </body>
