@@ -5,20 +5,29 @@
     <title></title>
     <style>
         .target {
-            width: 100px;
-            height: 10000px;
+            width: 400px;
+            height: 300px;
             background-color: red;
+            overflow-y: auto;
+        }
+
+        .inner {
+            height: 1000px;
         }
     </style>
 </head>
 <body>
-<div class="target" style="display: block;"></div>
+<div class="target">
+    <div class="inner"></div>
+</div>
 
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
 <script src="lib/jquery-1.10.2.js"></script>
 <script>
-    var index = 0;
+    document.body.addEventListener("scroll", function () {
+        console.log("3");
+    }, false);
     $(window).scroll(function () {
         console.log("1")
     });
