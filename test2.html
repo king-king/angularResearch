@@ -48,10 +48,12 @@
     $(window).scroll(function () {
         console.log("2")
     });
-    document.querySelector(".parent").addEventListener("click", function () {
+    var parent = document.querySelector(".parent");
+    parent.addEventListener("click", function () {
         console.log("parent")
     }, true);
-    document.querySelector(".child").addEventListener("click", function () {
+    var child = document.querySelector(".child");
+    child.addEventListener("click", function () {
         console.log("child")
     }, false);
 </script>
