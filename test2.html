@@ -14,13 +14,27 @@
         .inner {
             height: 1000px;
         }
+
+        .parent {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        .child {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
     </style>
 </head>
 <body>
 <div class="target">
     <div class="inner"></div>
 </div>
-
+<div class="parent">
+    <div class="child"></div>
+</div>
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
 <script src="lib/jquery-1.10.2.js"></script>
@@ -34,6 +48,12 @@
     $(window).scroll(function () {
         console.log("2")
     });
+    document.querySelector(".parent").addEventListener("click", function () {
+        console.log("parent")
+    }, true);
+    document.querySelector(".child").addEventListener("click", function () {
+        console.log("child")
+    }, false);
 </script>
 </body>
 </html>
