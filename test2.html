@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-<div class="target"></div>
+<div class="target" style="display: none;"></div>
 
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
@@ -23,15 +23,8 @@
 <script>
     var index = 0;
     document.onclick = function () {
-        var curindex = index++;
-        $(".target").fadeOut({
-            duration: 2000,
-            done: function () {
-                console.log("end")
-            },
-            step: function () {
-                console.log(curindex + "step")
-            }
+        $(".target").fadeIn({
+            duration: 3000
         });
     }
 </script>
