@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .target {
+            width: 400px;
+            height: 300px;
+            background-color: red;
+            overflow-y: auto;
+        }
+
+        .inner {
+            height: 1000px;
+        }
+
+        .parent {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+        }
+
+        .child {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="target">
+    <div class="inner"></div>
+</div>
+<div class="parent">
+    <div class="child"></div>
+</div>
+<!--<script src="lib/jquery-1.10.2.min.js"></script>-->
+<!--<script src="lib/jquery-3.1.1.min.js"></script>-->
+<script src="lib/jquery-1.10.2.js"></script>
+<script>
+    document.body.addEventListener("scroll", function () {
+        console.log("3");
+    }, true);
+    $(window).scroll(function () {
+        console.log("1")
+    });
+    $(window).scroll(function () {
+        console.log("2")
+    });
+    var parent = document.querySelector(".parent");
+    parent.addEventListener("click", function () {
+        console.log("parent")
+    }, true);
+    var child = document.querySelector(".child");
+    child.addEventListener("click", function () {
+        console.log("child")
+    }, false);
+</script>
+</body>
+</html>
