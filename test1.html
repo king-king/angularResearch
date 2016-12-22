@@ -9,13 +9,20 @@
 </head>
 <body ng-app="myApp">
 <div ng-controller="myAppCtrl">
-    <div class="border"><span ng-bind="'你好 : '+name"></span></div>
+    <div class="border"><span ng-bind="'count : '+count"></span></div>
 </div>
 <script src="lib/angular-1.6.0.js"></script>
 <script>
     var app = angular.module("myApp", []);
     app.controller("myAppCtrl", function ($scope) {
-        $scope.name = "wangqun";
+        $scope.count = 0;
+        document.onclick = function () {
+            $scope.$apply(function () {
+                $scope.count++;
+            });
+            $scope.$digest();
+
+        };
     });
 
 </script>
