@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-
     </style>
 </head>
-<body ng-app="myApp">
-<div ng-controller="myAppCtrl">
-    <div class="border"><span ng-bind="'你好 : '+name"></span></div>
-</div>
-<script src="lib/angular-1.6.0.js"></script>
-<script>
-    var app = angular.module("myApp", []);
-    app.controller("myAppCtrl", function ($scope) {
-        $scope.name = "wangqun";
-    });
+<body ng-controller="root_ctrl">
 
+<div class="target" ng-class="{'list-item':isItem}">{{name}}</div>
+<script src="lib/angular-1.3.0.js"></script>
+<script>
+    (function () {
+        var app = angular.module("app", []);
+        var root = app.controller("root_ctrl", ["$scope", function (s) {
+            s.name = "wq";
+            s.klass = "item";
+            s.isItem = true;
+        }]);
+    })();
 </script>
 </body>
 </html>
