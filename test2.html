@@ -6,49 +6,28 @@
     <style>
         .wrapper {
             border: 1px solid black;
-            width: 400px;
-            font-size: 14px;
-            box-sizing: border-box;
-            white-space: normal;
-            word-break: break-all;
-            line-height: 30px;
+            width: 100px;
+            height: 100px;
         }
 
-        .fixed {
-            line-height: 30px;
-            height: 60px;
-            /*overflow: hidden;*/
+        @keyframes animate0 {
+            100% {
+                transform: translate3d(500px, 0, 0);
+            }
         }
     </style>
 </head>
 <body>
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
-<script src="lib/jquery-1.10.2.js"></script>
-<div class="wrapper">
-    另一个表明使用分支会有很大帮助的观点的常见情形是：假设你直接工作在一个项目的主要分支（称为“主版本”），当你意识到你所做的可能是一个坏主意时已经晚了，这时你肯定宁愿自己是工作在一个主题分支上。如果提交图看起来像这样
-</div>
-<div class="wrapper">另一个表明使用分</div>
-<div class="wrapper fixed"></div>
+<div class="wrapper"></div>
+<!--<script src="lib/jquery-1.10.2.js"></script>-->
 <script>
     (function () {
-        var wra = document.querySelector(".wrapper");
-        var text = wra.innerText;
-        var offsetDiv = $("<div class='wrapper'></div>")[0];
-        var reText = "";
-        document.body.appendChild(offsetDiv);
-        for (var i = 0; i < text.length; i++) {
-            offsetDiv.textContent = reText + text[i] + "...";
-            if (offsetDiv.offsetHeight > 65) {
-                break;
-            }
-            reText += text[i];
+        var wrapper = document.querySelector(".wrapper");
+        document.onclick = function () {
+            wrapper.style.animation = "animate0 5s linear both";
         }
-        reText += "...";
-        document.body.removeChild(offsetDiv);
-        document.querySelector(".wrapper.fixed").textContent = reText;
-
-
     })()
 </script>
 </body>
