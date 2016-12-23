@@ -4,43 +4,51 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        .target {
+        .wrapper {
+            border: 1px solid black;
             width: 400px;
-            height: 300px;
-            background-color: red;
-            overflow-y: auto;
+            font-size: 14px;
+            box-sizing: border-box;
+            white-space: normal;
+            word-break: break-all;
+            line-height: 30px;
         }
 
-        .inner {
-            height: 1000px;
-        }
-
-        .parent {
-            width: 400px;
-            height: 400px;
-            background-color: aqua;
-        }
-
-        .child {
-            width: 200px;
-            height: 200px;
-            background-color: green;
+        .fixed {
+            line-height: 30px;
+            height: 60px;
+            /*overflow: hidden;*/
         }
     </style>
 </head>
 <body>
-<div class="target">
-    <div class="inner"></div>
-</div>
-<div class="parent">
-    <div class="child"></div>
-</div>
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
 <script src="lib/jquery-1.10.2.js"></script>
+<div class="wrapper">
+    另一个表明使用分支会有很大帮助的观点的常见情形是：假设你直接工作在一个项目的主要分支（称为“主版本”），当你意识到你所做的可能是一个坏主意时已经晚了，这时你肯定宁愿自己是工作在一个主题分支上。如果提交图看起来像这样
+</div>
+<div class="wrapper">另一个表明使用分</div>
+<div class="wrapper fixed"></div>
 <script>
     (function () {
-        window.name="wangqun2";
+        var wra = document.querySelector(".wrapper");
+        var text = wra.innerText;
+        var offsetDiv = $("<div class='wrapper'></div>")[0];
+        var reText = "";
+        document.body.appendChild(offsetDiv);
+        for (var i = 0; i < text.length; i++) {
+            offsetDiv.textContent = reText + text[i] + "...";
+            if (offsetDiv.offsetHeight > 65) {
+                break;
+            }
+            reText += text[i];
+        }
+        reText += "...";
+        document.body.removeChild(offsetDiv);
+        document.querySelector(".wrapper.fixed").textContent = reText;
+
+
     })()
 </script>
 </body>
