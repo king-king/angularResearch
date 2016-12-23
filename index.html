@@ -3,21 +3,24 @@
 <head>
     <script src="lib/angular-1.6.0.js"></script>
     <style>
+        .button {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <div ng-controller="appCtrl as ctrl">
-    <div>name:{{name}}</div>
+    <div>number : {{number}}</div>
+    <div class="button" ng-click="add()">button</div>
 </div>
 <script>
     var app = angular.module("myApp", []);
     app.controller("appCtrl", function ($scope) {
-        $scope.name = "wangqun";
-        setTimeout(function () {
-            $scope.$apply(function () {
-                console.log("ok");
-                $scope.name = 'ok';
-            });
-        }, 2000);
+        $scope.number = 0;
+        $scope.add = function () {
+            $scope.number++;
+        }
     });
 </script>
 </body>
