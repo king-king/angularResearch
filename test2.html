@@ -11,12 +11,7 @@
     <div ng-controller="core_ctrl">
         <div ng-bind="name"></div>
         <div ng-bind="old"></div>
-    </div>
-</div>
-<div class="module1">
-    <div ng-controller="core_ctrl_1">
-        <div ng-bind="name1"></div>
-        <div ng-bind="old1"></div>
+        <div ng-bind="time"></div>
     </div>
 </div>
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
@@ -25,18 +20,25 @@
 <script src="lib/angular-1.3.0.js"></script>
 <script>
     (function () {
-        angular.module("my_app", []).controller("core_ctrl", ["$scope", function (s) {
-            s.name = "wq";
-            s.old = 32;
-        }]);
 
-        angular.module("my_app1", []).controller("core_ctrl_1", ["$scope", function (s) {
+        var my_app1 = angular.module("my_app1", []);
+        my_app1.controller("core_ctrl_1", ["$scope", function (s) {
             s.name1 = "jack";
             s.old1 = 67;
         }]);
+        my_app1.factory("time", function () {
+            return function () {
+                return (new Date()).toLocaleString();
+            }
+        });
+
+        angular.module("my_app", ["my_app1"]).controller("core_ctrl", ["$scope", "time", function (s, time) {
+            s.name = "wq";
+            s.old = 32;
+            s.time = time();
+        }]);
 
         angular.bootstrap(document.querySelector(".module0"), ["my_app"]);
-        angular.bootstrap(document.querySelector(".module1"), ["my_app1"]);
 
     })()
 </script>
