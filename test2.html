@@ -29,18 +29,19 @@
     </style>
 </head>
 <body>
-<div class="target">
-    <div class="inner"></div>
-</div>
-<div class="parent">
-    <div class="child"></div>
-</div>
+<span>hello</span>
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
 <script src="lib/jquery-1.10.2.js"></script>
 <script>
-    var span = document.querySelector("span");
-    span.innerHTML = "123";
+    (function () {
+        var a = 32;
+        var b = 34;
+
+        function add(a, b) {
+            return a + b - 2 * a;
+        }
+    })()
 </script>
 </body>
 </html>
