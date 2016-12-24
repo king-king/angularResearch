@@ -12,17 +12,13 @@
         <div ng-bind="name"></div>
         <div ng-bind="old"></div>
     </div>
+</div>
+<div class="module1">
     <div ng-controller="core_ctrl_1">
         <div ng-bind="name1"></div>
         <div ng-bind="old1"></div>
     </div>
 </div>
-<!--<div class="module1">-->
-    <!--<div ng-controller="core_ctrl_1">-->
-        <!--<div ng-bind="name1"></div>-->
-        <!--<div ng-bind="old1"></div>-->
-    <!--</div>-->
-<!--</div>-->
 <!--<script src="lib/jquery-1.10.2.min.js"></script>-->
 <!--<script src="lib/jquery-3.1.1.min.js"></script>-->
 <!--<script src="lib/jquery-1.10.2.js"></script>-->
@@ -39,7 +35,9 @@
             s.old1 = 67;
         }]);
 
-        angular.bootstrap(document.querySelector(".module0"), ["my_app", "my_app1"]);
+        angular.bootstrap(document.querySelector(".module0"), ["my_app"]);
+        angular.bootstrap(document.querySelector(".module1"), ["my_app1"]);
+
     })()
 </script>
 </body>
