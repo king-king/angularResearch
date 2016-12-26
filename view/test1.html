@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+
     </style>
 </head>
-<body ng-app="myApp">
-<div ng-controller="myAppCtrl">
-    <div class="border"><span ng-bind="'count : '+count"></span></div>
-</div>
-<script src="../lib/angular-1.6.0.js"></script>
-<script>
-    var app = angular.module("myApp", []);
-    app.controller("myAppCtrl", function ($scope) {
-        $scope.count = 0;
-        document.onclick = function () {
-            $scope.$apply(function () {
-                $scope.count++;
-            });
-            $scope.$digest();
 
-        };
-    });
-</script>
+<body ng-app="myApp">
+    <div ng-controller="main.ctr">
+        <div class="border"><span ng-bind="'name : '+name"></span></div>
+    </div>
+    <script src="angular-1.6.0.js"></script>
+    <script src="controller.js"></script>
+    <script>
+    var app = angular.module("myApp", ["main.controller"]);
+    </script>
 </body>
+
 </html>
