@@ -20,13 +20,18 @@
             s.item = {
                 name : "问天网打动顾客ie" ,
                 year : 43
-            }
+            };
         } ] );
 
-        app.directive( "wqItem" , function ( $compile ) {
-            return function ( s , e , attrs ) {
-                var el = $compile( "<div>{{year}}</div>" )( s );
-                e.append( el );
+        app.directive( "wqItem" , function () {
+            return {
+                link : function ( scope , element , attrs ) {
+                    scope.city = "湖南"
+                } ,
+                template : function () {
+                    return "<div class='inner'>{{city}}</div>";
+                } ,
+                replace : false
             }
         } );
 
