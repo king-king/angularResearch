@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-hello word
+<body ng-app="myApp">
+<div ng-controller="ctrl">
+    <div class="wrapper">
+        <div data-wq-item my-name="good"></div>
+    </div>
+</div>
+<script src="lib/angular-1.6.0.js"></script>
 <script>
+    (function () {
+
+        var app = angular.module( "myApp" , [] );
+        app.controller( "ctrl" , [ "$scope" , function ( s ) {
+            s.year = 456;
+            s.item = {
+                name : "问天网打动顾客ie" ,
+                year : 43
+            }
+        } ] );
+
+        app.directive( "wqItem" , function ( $compile ) {
+            return function ( s , e , attrs ) {
+                var el = $compile( "<div>{{year}}</div>" )( s );
+                e.append( el );
+            }
+        } );
+
+    })();
 </script>
 </body>
 </html>
