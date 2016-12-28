@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        table {
+            border-radius: 2px;
+            box-shadow: 0 0 12px 0 rgba(64, 53, 80, 0.1);
+            font-family: Microsoft YaHei, sans-serif;
+            font-size: 12px;
+        }
+
+        th {
+            color: #333333;
+        }
+
+        td {
+            color: #4f4b9f;
+            cursor: pointer;
+        }
+
+        td.enable.select {
+            color: #fff;
+            background-color: #f44336;
+        }
+
+        td.disable {
+            color: #c9c9c9;
+        }
+
+        th, td {
+            /*border: 1px solid #aaa;*/
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+        }
+
+        .holiday {
+            /*color: #e02d2d;*/
+        }
+    </style>
+</head>
+<body>
+<table cellspacing="0">
+
+</table>
+<script src="../lib/util.js"></script>
+<script>
+    (function () {
+        var element = util.element;
+        var loop = util.loop;
+        var table = document.querySelector("table");
+        element("tr", {
+            child: (function () {
+                var re = [];
+                var day = ["一", "二", "三", "四", "五", "六", "日"];
+                loop(7, function (i) {
+                    re.push(element("th", {
+                        textContent: day[i]
+                    }));
+                });
+                return re;
+            })()
+        }, table);
+        var curTime = new Date();
+        var curYear = curTime.getYear();
+        var curDate = curTime.getDate();
+        var curDay = curTime.getDay();
+        var curMonth = curTime.getMonth();
+
+        var date = curTime.getDate();
+        curTime.setDate(date - 15);
+        var curMonthFirday = new Date((new Date()).setDate(1));
+
+        var days = [];
+        loop(5, function (i) {
+            element("tr", {
+                child: (function () {
+                    var re = [];
+                    var day = ["一", "二", "三", "四", "五", "六", "日"];
+                    loop(7, function (i) {
+                        re.push(element("td"));
+                    });
+                    days = days.concat(re);
+                    return re;
+                })()
+            }, table);
+        });
+
+        var index = 0;
+        var day = curMonthFirday.getDay();
+        if (day === 0) {
+            index = 6;
+        } else {
+            index = day - 1;
+        }
+
+        while (curMonth === curMonthFirday.getMonth()) {
+            days[index].textContent = curMonthFirday.getDate();
+            days[index].classList.add("enable");
+            curMonthFirday.setDate(curMonthFirday.getDate() + 1);
+            var d = curMonthFirday.getDay();
+            if (d == 0 || d == 6) {
+                days[index + 1].classList.add("holiday");
+            }
+            index++;
+        }
+
+
+    })();
+</script>
+</body>
+</html>
