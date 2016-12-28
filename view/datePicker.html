@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        th, td {
+            border: 1px solid black;
+            width: 70px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table cellspacing="0">
+
+</table>
+<script src="../lib/util.js"></script>
+<script>
+    (function () {
+        var element = util.element;
+        var loop = util.loop;
+        var table = document.querySelector("table");
+        element("tr", {
+            child: (function () {
+                var re = [];
+                var day = ["日", "一", "二", "三", "四", "五", "六"];
+                loop(7, function (i) {
+                    re.push(element("th", {
+                        textContent: day[i]
+                    }));
+                });
+                return re;
+            })()
+        }, table);
+        var curTime = new Date();
+        var date = curTime.getDate();
+        curTime.setDate(date - 15);
+        console.log(curTime.toLocaleDateString());
+    })();
+</script>
+</body>
+</html>
