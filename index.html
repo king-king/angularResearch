@@ -17,7 +17,11 @@
 
         var app = angular.module("myApp", []);
         app.controller("ctrl", ["$scope", function (s) {
-            s.href = "javascript:void(0)";
+            setTimeout(function () {
+                s.$apply(function () {
+                    s.href = "http://baidu.com"
+                });
+            }, 500000);
             s.year = 456;
             s.item = {
                 name: "问天网打动顾客ie",
