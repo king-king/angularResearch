@@ -12,7 +12,8 @@
         <td><input ng-model='item.quantity'></td>
     </script>
     <script>
-        angular.module("myApp", []).controller("ctrl", function ($scope) {
+        var app = angular.module("myApp", []);
+        app.controller("ctrl", function ($scope) {
             $scope.products = [
                 {
                     name: "apple",
@@ -32,11 +33,13 @@
                     quantity: 78
                 }
             ]
-        }).directive("productItem", function () {
+        });
+        app.directive("productItem", function () {
             return {
                 template: document.querySelector("#productTemplate").outerText
             }
-        }).directive("productTable", function () {
+        });
+        app.directive("productTable", function () {
             return {
                 transclude: true,
                 scope: {value: "=productTable", data: "=productData"}
