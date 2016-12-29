@@ -6,7 +6,7 @@
 </head>
 <body ng-app="myApp">
 <div ng-controller="ctrl">
-    <div class="wrapper">
+    <div class="wrapper" ng-if="year==455">
         <div data-wq-item my-name="good"></div>
     </div>
     <a ng-href="{{href}}" target="_blank">跳转链接</a>
@@ -19,12 +19,13 @@
         app.controller("ctrl", ["$scope", function (s) {
             setTimeout(function () {
                 s.$apply(function () {
-                    s.href = "http://baidu.com"
+                    s.href = "http://baidu.com";
+                    s.year = 455;
                 });
             }, 5000);
             s.year = 456;
             s.item = {
-                name: "问天网打动顾客ie",
+                name: "哈哈哈",
                 year: 43
             };
         }]);
