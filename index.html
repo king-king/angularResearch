@@ -2,7 +2,10 @@
 <html ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>angular test</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+
     <script src="lib/angular-1.6.0.js"></script>
     <script type="text/ng-template" id="productTemplate">
         <td>{{item.name}}</td>
@@ -30,17 +33,14 @@
                     quantity: 78
                 }
             ]
-        }).directive("item", function () {
+        }).directive("productItem", function () {
             return {
                 template: document.querySelector("#productTemplate").outerText
             }
-        }).directive("table", function () {
+        }).directive("productTable", function () {
             return {
                 transclude: true,
-                scope: {
-                    value: "=table",
-                    data: "=data"
-                }
+                scope: {value: "=productTable", data: "=productData"}
             }
         });
     </script>
@@ -48,12 +48,12 @@
 <body ng-controller="ctrl">
 <div class="panel panel-default">
     <div class="panel-body">
-        <table class="table table-striped" data-table="totalValue" data-data="products" ng-transclude>
+        <table class="table table-striped" data-product-table="totalValue" data-data="products" ng-transclude>
             <tr>
                 <th>name</th>
                 <th>quantity</th>
             </tr>
-            <tr data-ng-repeat="item in products" data-item></tr>
+            <tr data-ng-repeat="item in products" data-product-item></tr>
             <tr>
                 <th>total:</th>
                 <td>{{totalValue}}</td>
