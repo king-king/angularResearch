@@ -9,31 +9,33 @@
     <div class="wrapper">
         <div data-wq-item my-name="good"></div>
     </div>
+    <a ng-href="{{href}}" target="_blank">跳转链接</a>
 </div>
 <script src="lib/angular-1.6.0.js"></script>
 <script>
     (function () {
 
-        var app = angular.module( "myApp" , [] );
-        app.controller( "ctrl" , [ "$scope" , function ( s ) {
+        var app = angular.module("myApp", []);
+        app.controller("ctrl", ["$scope", function (s) {
+            s.href = "javascript:void(0)";
             s.year = 456;
             s.item = {
-                name : "问天网打动顾客ie" ,
-                year : 43
+                name: "问天网打动顾客ie",
+                year: 43
             };
-        } ] );
+        }]);
 
-        app.directive( "wqItem" , function () {
+        app.directive("wqItem", function () {
             return {
-                link : function ( scope , element , attrs ) {
+                link: function (scope, element, attrs) {
                     scope.city = "湖南"
-                } ,
-                template : function () {
+                },
+                template: function () {
                     return "<div class='inner'>{{city}}</div>";
-                } ,
-                replace : false
+                },
+                replace: false
             }
-        } );
+        });
 
     })();
 </script>
