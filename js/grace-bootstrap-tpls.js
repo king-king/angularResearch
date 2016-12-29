@@ -15373,7 +15373,7 @@ angular.module("template/dimensionBaseSelect/dimensionSelectWithCheckBox.html", 
         "            <div class=\"search-label\" ng-repeat=\"di in data.detail\">\n" +
         "                <span ng-class=\"{active:selStatus.indexOf(di.code)>-1?true:false, active1:di.checkboxselect, di_sel: di.isDrop, active4:di.detail}\" ng-click=\"select(di, $index, data.detail)\" code=\"{{di.code}}\">\n" +
         "                    <div ng-if=\"!di.detail\" class=\"occupy\" ng-class=\"{active:selStatus.indexOf(di.code)>-1?true:false, active2:(di._checked)}\"></div>\n" +
-        "                    <i style=\"font-style: normal;\" ng-bind=\"di.name\"></i>\n" +
+        "                    <i style=\"fonts-style: normal;\" ng-bind=\"di.name\"></i>\n" +
         "                    <em class=\"triangle-png-down\" ng-if=\"di.detail\"></em>\n" +
         "                </span>\n" +
         "                <div ng-if=\"di.detail\" class=\"cond-dropdown\" ng-show=\"di.showCheckBoxList\" ng-mouseleave=\"hideCheckboxList(di)\">\n" +
@@ -15382,7 +15382,7 @@ angular.module("template/dimensionBaseSelect/dimensionSelectWithCheckBox.html", 
         "                            <label>\n" +
         "                                <div name=\"{{diDrop.code}}\" code=\"{{diDrop.code}}\" ng-click=\"updateShowButtonForCheck(diDrop.code, di)\">\n" +
         "                                    <div class=\"occupy\" ng-class=\"{active:selStatus.indexOf(diDrop.code)>-1?(di._checked=true):false}\" ></div>\n" +
-        "                                    <i style=\"font-style: normal;\" ng-bind=\"diDrop.name\"></i>\n" +
+        "                                    <i style=\"fonts-style: normal;\" ng-bind=\"diDrop.name\"></i>\n" +
         "                                </div>\n" +
         "                            </label>\n" +
         "                        </li>\n" +
@@ -15442,7 +15442,7 @@ angular.module("template/dimensionBaseSelect/dimensionSelectWithRadioBox.html", 
         "            <div class=\"search-label\" ng-repeat=\"di in data.detail\">\n" +
         "                <span ng-class=\"{active:selStatus.indexOf(di.code)>-1?true:false, active1:di.checkboxselect, di_sel: di.isDrop, active4:di.detail}\" ng-click=\"select(di, $index, data.detail)\" code=\"{{di.code}}\">\n" +
         "                    <div ng-if=\"!di.detail\" class=\"occupy\" ng-class=\"{active:selStatus.indexOf(di.code)>-1?true:false, active2:(di._checked)}\"></div>\n" +
-        "                    <i style=\"font-style: normal;\" ng-bind=\"di.name\"></i>\n" +
+        "                    <i style=\"fonts-style: normal;\" ng-bind=\"di.name\"></i>\n" +
         "                    <em class=\"triangle-png-down\" ng-if=\"di.detail\" ng-click=\"hideCheckboxListForClick(di, di.isDrop, $event)\"></em>\n" +
         "                </span>\n" +
         "                <div ng-if=\"di.detail\" class=\"cond-dropdown\" ng-show=\"di.showCheckBoxList\" ng-mouseleave=\"hideCheckboxList(di)\">\n" +
