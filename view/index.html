@@ -11,13 +11,15 @@
     </style>
 </head>
 <div ng-controller="appCtrl as ctrl">
-    <div>number : {{number}}</div>
-    <div class="button" ng-click="add()">button</div>
+    <div ng-if="show">number : {{number}}</div>
+    <a ng-href="{{show}}"> </a>
+    <!--<div class="button" ng-click="add()">button</div>-->
 </div>
 <script>
     var app = angular.module("myApp", []);
     app.controller("appCtrl", function ($scope) {
         $scope.number = 0;
+        $scope.show = "";
         $scope.add = function () {
             $scope.number++;
         }
