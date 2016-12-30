@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            font: 22px/1 Verdana, "Microsoft YaHei", Arial, "\5b8b\4f53", sans-serif;
+        }
+
+        .a {
+            border: 1px solid black;
+            text-shadow: 0 0 0 #000;
+            -ms-text-shadow: 0 0 0 #000;
+        }
+
+    </style>
 </head>
 <body ng-app="myApp">
+<div class="a">中国队</div>
+<div class="b">中国队</div>
 <div ng-controller="ctrl">
-    <div class="wrapper" ng-if="year==455">
-        <div data-wq-item my-name="good"></div>
-    </div>
-    <a ng-href="{{href}}" target="_blank">跳转链接</a>
+    <!--<div class="wrapper" ng-if="year==455">-->
+    <!--<div data-wq-item my-name="good"></div>-->
+    <!--</div>-->
+    <!--<a title="提示" ng-href="{{href}}" target="_blank">跳转链接</a>-->
 </div>
 <script src="lib/angular-1.6.0.js"></script>
 <script>
